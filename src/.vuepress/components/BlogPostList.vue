@@ -92,26 +92,28 @@ export default {
             <h2>
                 Filtered by {{ selectedTags.join(',') }}
             </h2>
-            <button
-                type="button"
-                @click="resetTags"
-                class="btn clear-filter-btn"
-            >
-                Clear filter
-            </button>
+            <a class="nes-badge" style="margin-bottom:13px;">
+                <span
+                    type="button"
+                    @click="resetTags"
+                    class="btn clear-filter-btn is-error"
+                >
+                    Clear filter
+                </span>
+            </a>
         </div>
         <ul class="blog-list">
             <li v-for="(item, index) in filteredList"
-                class="blog-list__item">
+                class="blog-list__item nes-container with-white is-rounded mb-3">
                 <BlogPostPreview 
                     v-show="index >= currentPage * pageSize && index < (currentPage + 1) * pageSize"
                     :item="item"
                 />
-                <ul v-for="tag in item.frontmatter.tags" class="blog-list__tags">
-                    <li>
-                        <button @click="addTag(tag)">{{ tag }}</button>
-                    </li>
-                </ul>
+                <!-- <template v-for="tag in item.frontmatter.tags" class="blog-list__tags">
+                    <a href="#" class="nes-badge" @click.prevent="addTag(tag)" style="margin-right:30px;">
+                        <span class="is-dark">{{ tag }}</span> 
+                    </a>
+                </template> -->
             </li>
         </ul>
 

@@ -77,7 +77,7 @@ export default {
                 <div class="archive-month">{{month | monthToLongName}}</div>
                 <ul class="archive-list">
                     <li v-for="(item, index) in postsByDate(year, month)" class="archive-list__item">
-                        {{new Date(item.frontmatter.date).getDate()}} - <router-link :to="item.path">{{item.title}}</router-link>
+                        {{new Date(item.frontmatter.date).getDate()}} - <router-link style="color:#333333; text-decoration:underline;" :to="item.path">{{item.title}}</router-link>
                     </li>
                 </ul>
             </div>

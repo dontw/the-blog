@@ -27,8 +27,10 @@ export default {
         <time>{{ formatPublishDate }}</time>
         <h3 class="blog-post__title">{{ item.frontmatter.title }}</h3>
         <p v-if="item.frontmatter.excerpt">{{ item.frontmatter.excerpt }}</p>
-        <p v-if="item.readingTime">Estimated time: {{ item.readingTime.text }}</p>
-        <router-link class="button blog-post__button" :to="item.path">Read More ></router-link>
+        <!-- <p v-if="item.readingTime">Estimated time: {{ item.readingTime.text }}</p> -->
+        <div style="text-align:right;">
+            <router-link class="nes-text is-primary" :to="item.path">Read More ></router-link>
+        </div>
     </section>
 </template>
 
